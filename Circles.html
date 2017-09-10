@@ -5,13 +5,27 @@
 <script type="text/javascript" src="js/paper.js"></script>
  <link rel="stylesheet" type="text/css" href="circles.css">
 <script type="text/paperscript" canvas="myCanvas">
+	var circlesArray=[];
+
 	function onKeyDown(event) {
+
 	var maximumP=new Point(view.size.width, view.size.height);
 	//Generate Random x and y axis.
 	var rand=Point.random();
 	var point=maximumP*rand;
-	new Path.Circle(point,10).fillColor="orange";
-}
+	var newCircle= new Path.Circle(point,500);
+	newCircle.fillColor="orange";
+	circlesArray.push(newCircle);
+	}
+
+	function onFrame(event){
+		for(var i=0; i < circlesArray.length;i++){
+			circlesArray[i].fillColor.hue +=1;
+			circlesArray[i].scale(.9);
+			
+		}
+	}
+
 </script>
 </head>
 <body>
