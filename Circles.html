@@ -3,12 +3,16 @@
 <head>
 <!-- Load the Paper.js library -->
 <script type="text/javascript" src="js/paper.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.core.min.js"></script>
  <link rel="stylesheet" type="text/css" href="circles.css">
 <script type="text/paperscript" canvas="myCanvas">
 	var circlesArray=[];
+	var sound=new Howl({
+		src:['sounds/bubbles.mp3']	
+	});
 
 	function onKeyDown(event) {
-
+	sound.play();
 	var maximumP=new Point(view.size.width, view.size.height);
 	//Generate Random x and y axis.
 	var rand=Point.random();
